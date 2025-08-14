@@ -48,7 +48,7 @@ Items:
     return result[0]['generated_text']
 
 # Streamlit UI
-st.title("🧾 AI-Powered Receipt Reader")
+st.title("AI Receipt Reader")
 
 uploaded_file = st.file_uploader("Upload a receipt image", type=["jpg", "jpeg", "png"])
 
@@ -60,11 +60,11 @@ if uploaded_file:
         image_bytes = uploaded_file.getvalue()
         extracted_text = extract_text_from_image(image_bytes)
 
-    st.subheader("📝 Extracted Text")
+    st.subheader("Extracted Text")
     st.text(extracted_text)
 
     with st.spinner("Parsing receipt using LLM..."):
         structured_output = parse_receipt_text(extracted_text)
 
-    st.subheader("📊 Parsed Receipt Data")
+    st.subheader("Parsed Receipt Data")
     st.text(structured_output)
